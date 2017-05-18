@@ -1,18 +1,17 @@
 package octo.calc.automate;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 public class JMeterSeleniumDemoTest{
    @Test
-   public void openBlazeMeterTest() {
-       FirefoxDriver driver = new FirefoxDriver();
-       driver.get("http://blazemeter.com");
-       WebElement title = driver.findElement(By.xpath("//title"));
-       System.out.println("********************************************************");
-       System.out.println("*" + title.getAttribute("text") + "*");
-       System.out.println("********************************************************");
-       driver.quit();
-   }
+   public void test02Chrome(){
+		System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://ec2-54-219-133-160.us-west-1.compute.amazonaws.com:8080/Calculator/");
+		System.out.println("Chrome browser opened and navigated to Tomcat site");
+		driver.quit();
+	}
 }
